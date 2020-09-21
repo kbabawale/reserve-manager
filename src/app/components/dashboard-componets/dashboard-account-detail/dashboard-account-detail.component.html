@@ -1,9 +1,11 @@
-<div class="animated fadeInUp" style="min-height: 100%; margin-bottom: 200px;">
+<!-- <div class="animated fadeInUp" style="min-height: 100%; margin-bottom: 200px;">
     <div class="container">
         <div class="inner mt-4" style="overflow: hidden;">
             <header class="d-flex justify-content-start  ">
                 <div class="d-flex align-content-center  align-items-center">
-                    <button (click)="location.back()" mat-icon-button><mat-icon>arrow_back</mat-icon></button>
+                    <button (click)="location.back()" mat-icon-button>
+                        <mat-icon>arrow_back</mat-icon>
+                    </button>
                 </div>
 
                 <div class="d-flex align-content-center  align-items-center ml-3">
@@ -61,27 +63,33 @@
 
                     <div *ngIf="apiService.USER.user_type_id == 2" class="row action-footer mt-3 px-sm-3">
                         <div class="col-md-4 mb-2">
-                            <button [disabled]="loading" (click)="openAccountOperationDialog('deposite', account?.account_number, account?.balance )" class="btn btn-outline-primary">
-                                <mat-icon>add_circle</mat-icon>  
+                            <button [disabled]="loading"
+                                (click)="openAccountOperationDialog('deposite', account?.account_number, account?.balance )"
+                                class="btn btn-outline-primary">
+                                <mat-icon>add_circle</mat-icon>
                                 {{!loading ? 'Doposite Request' : 'Please wait..'}}
-                        </button>
+                            </button>
                         </div>
                         <div class="col-md-4 mb-2">
-                            <button [disabled]="loading" (click)="openAccountOperationDialog('transfer', account?.account_number, account?.balance)" class="btn btn-outline-dark">
+                            <button [disabled]="loading"
+                                (click)="openAccountOperationDialog('transfer', account?.account_number, account?.balance)"
+                                class="btn btn-outline-dark">
                                 <mat-icon>publish</mat-icon>
                                 {{!loading ? 'Transfer' : 'Please wait..'}}
-                        </button>
+                            </button>
                         </div>
 
                         <div class="col-md-4 mb-2">
-                            <button [disabled]="loading" (click)="openAccountOperationDialog('withdraw', account?.account_number, account?.balance)" class="btn btn-outline-danger">
-                                <mat-icon>archive</mat-icon>  {{!loading ? 'withdrawal Request' : 'Please wait..'}}
-                        </button>
+                            <button [disabled]="loading"
+                                (click)="openAccountOperationDialog('withdraw', account?.account_number, account?.balance)"
+                                class="btn btn-outline-danger">
+                                <mat-icon>archive</mat-icon> {{!loading ? 'withdrawal Request' : 'Please wait..'}}
+                            </button>
                         </div>
                     </div>
                 </div>
 
-                <!-- Transactions -->
+                
 
                 <div class="col-md-12 ">
                     <strong class="mb-3 d-block px-sm-3">Transactions</strong>
@@ -90,7 +98,7 @@
                     </div>
                     <ng-template #showTable>
                         <div class="row mt-3 ">
-                            <!-- Transactions -->
+                            
                             <div class="col-md-12 ">
                                 <div class="table-conshadow mt-0 bg-white">
                                     <table class="table">
@@ -98,7 +106,9 @@
                                             <tr>
                                                 <th>Type</th>
                                                 <th>Amount</th>
-                                                <th class=" d-flex justify-content-end align-content-center align-items-center ">Date</th>
+                                                <th
+                                                    class=" d-flex justify-content-end align-content-center align-items-center ">
+                                                    Date</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -106,17 +116,19 @@
                                                 <td>
                                                     {{transaction?.transaction_type}}
                                                 </td>
-                                                <td [ngClass]="{'text-primary': transaction?.transaction_type== 'deposite', 'text-danger': transaction?.transaction_type == 'withdraw', 'text-dark': transaction?.transaction_type == 'transfer' }">
+                                                <td
+                                                    [ngClass]="{'text-primary': transaction?.transaction_type== 'deposite', 'text-danger': transaction?.transaction_type == 'withdraw', 'text-dark': transaction?.transaction_type == 'transfer' }">
                                                     &#8358;
                                                     <span class="text-capitalize" *ngIf="transaction?.amount >= 1000">
-                                                    {{transaction?.amount |  number:'2.'}}
-                                                </span>
+                                                        {{transaction?.amount |  number:'2.'}}
+                                                    </span>
                                                     <span *ngIf="transaction?.amount < 1000">
-                                                    {{transaction?.amount}}
-                                                </span>
+                                                        {{transaction?.amount}}
+                                                    </span>
                                                 </td>
 
-                                                <td class=" d-flex justify-content-end align-content-center align-items-center ">
+                                                <td
+                                                    class=" d-flex justify-content-end align-content-center align-items-center ">
                                                     {{transaction?.createdAt | date:'short'}}
                                                 </td>
                                             </tr>
@@ -126,10 +138,10 @@
                             </div>
                         </div>
                     </ng-template>
-                </div>
+                </div> -->
 
 
-                <!-- <div class="col-md-12 mt-4">
+<!-- <div class="col-md-12 mt-4">
                     <div class=" bg-white">
                         <div class="py-3 px-3">
                             <button class="" color="warn" (click)="openConfirmDialog()" mat-raised-button>
@@ -138,7 +150,7 @@
                         </div>
                     </div>
                 </div> -->
-            </div>
+<!-- </div>
         </div>
     </div>
-</div>
+</div> -->

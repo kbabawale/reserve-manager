@@ -8,22 +8,22 @@ import { HttpClient } from '@angular/common/http';
 export class ApiService {
 
   USER = {
-id: null,
-firstname: null,
-lastname: null,
-email: null,
-user_type_id:  null,
-phone_number:  null,
-gender_id:  null,
-address:  null,
-status: null,
-activated:  null,
-country_id:  null,
-identification_filename:  null,
-proof_of_address_filename:  null,
-promotion_type_id: null,
-createdAt: null,
-updatedAt:  null,
+    id: null,
+    firstname: null,
+    lastname: null,
+    email: null,
+    user_type_id: null,
+    phone_number: null,
+    gender_id: null,
+    address: null,
+    status: null,
+    activated: null,
+    country_id: null,
+    identification_filename: null,
+    proof_of_address_filename: null,
+    promotion_type_id: null,
+    createdAt: null,
+    updatedAt: null,
   }
 
   LOADING = {
@@ -34,146 +34,146 @@ updatedAt:  null,
 
   constructor(private http: HttpClient) {
 
-   }
+  }
 
   //  USER   //
 
-   addUser(user: any){
-return this.http.post<any>(`${this.devUrl}/user`, user)
-   }
+  addUser(user: any) {
+    return this.http.post<any>(`${this.devUrl}/user`, user)
+  }
 
-   login(user: any){
+  login(user: any) {
     return this.http.post<any>(`${this.devUrl}/login`, user)
-      }
+  }
 
-      getLoggedInUser(){
-        return this.http.get<any>(`${this.devUrl}/user/single`);
-       }
+  getLoggedInUser() {
+    return this.http.get<any>(`${this.devUrl}/user/single`);
+  }
 
-       getUserInfo(uid: any){
-        return this.http.get<any>(`${this.devUrl}/user?uid=${uid}`);
-       }
+  getUserInfo(uid: any) {
+    return this.http.get<any>(`${this.devUrl}/user?uid=${uid}`);
+  }
 
-       getUsers(){
-        return this.http.get<any>(`${this.devUrl}/user`);
-       }
+  getUsers() {
+    return this.http.get<any>(`${this.devUrl}/user`);
+  }
 
-       editUser(user: any,  uid: any ){
-        return this.http.put<any>(`${this.devUrl}/user/${uid}`, user);
-       }
-       deleteUser(uid: any ){
-        return this.http.delete<any>(`${this.devUrl}/user/${uid}`);
-       }
+  editUser(user: any, uid: any) {
+    return this.http.put<any>(`${this.devUrl}/user/${uid}`, user);
+  }
+  deleteUser(uid: any) {
+    return this.http.delete<any>(`${this.devUrl}/user/${uid}`);
+  }
 
-       editPassword(password: any, uid: any){
-        return this.http.put<any>(`${this.devUrl}/user/password/${uid}`, password);
-       }
+  editPassword(password: any, uid: any) {
+    return this.http.put<any>(`${this.devUrl}/user/password/${uid}`, password);
+  }
 
-      // USER ACCOUNT  //
-  addAccount(account: any){
+  // USER ACCOUNT  //
+  addAccount(account: any) {
     return this.http.post<any>(`${this.devUrl}/account`, account);
   }
-  getAccount(uid, account_number, query){
+  getAccount(uid, account_number, query) {
     return this.http.get<any>(`${this.devUrl}/account?uid=${uid}&account_number=${account_number}&query=${query}`);
   }
-  editAccount(account: any,  account_id: any ){
+  editAccount(account: any, account_id: any) {
     return this.http.put<any>(`${this.devUrl}/account/${account_id}`, account);
   }
 
-  deleteAccount(account_id: any){
+  deleteAccount(account_id: any) {
     return this.http.delete<any>(`${this.devUrl}/account/${account_id}`);
   }
 
 
-    // REQUEST  //
-    addRequest(request: any){
+  // REQUEST  //
+  addRequest(request: any) {
     return this.http.post<any>(`${this.devUrl}/request`, request);
   }
-  getRequest( uid: any, request_id: any, single: any,  all:any){
+  getRequest(uid: any, request_id: any, single: any, all: any) {
     return this.http.get<any>(`${this.devUrl}/request?uid=${uid}&request_id=${request_id}&single=${single}&all=${all}`);
   }
-  deleteRequest(request_id: any){
+  deleteRequest(request_id: any) {
     return this.http.delete<any>(`${this.devUrl}/request/${request_id}`);
   }
 
 
-      // TRANSACTIONS  //
-      addTransaction(transaction: any){
-      return this.http.post<any>(`${this.devUrl}/transaction`, transaction);
-    }
-    getTransactions(all:any){
-      return this.http.get<any>(`${this.devUrl}/transaction?all=${all}`);
-    }
-    getTransactionsByUid(uid:any){
-      return this.http.get<any>(`${this.devUrl}/transaction?uid=${uid}`);
-    }
-    getTransactionsById(transaction_id:any){
-      return this.http.get<any>(`${this.devUrl}/transaction?transaction_id=${transaction_id}`);
-    }
-    getTransactionsByAccountNo(account_number:any){
-      return this.http.get<any>(`${this.devUrl}/transaction?account_number=${account_number}`);
-    }
-    
-    // deleteTransaction(request_id: any){
-    //   return this.http.delete<any>(`${this.devUrl}/request/${request_id}`);
-    // }
+  // TRANSACTIONS  //
+  addTransaction(transaction: any) {
+    return this.http.post<any>(`${this.devUrl}/transaction`, transaction);
+  }
+  getTransactions(all: any) {
+    return this.http.get<any>(`${this.devUrl}/transaction?all=${all}`);
+  }
+  getTransactionsByUid(uid: any) {
+    return this.http.get<any>(`${this.devUrl}/transaction?uid=${uid}`);
+  }
+  getTransactionsById(transaction_id: any) {
+    return this.http.get<any>(`${this.devUrl}/transaction?transaction_id=${transaction_id}`);
+  }
+  getTransactionsByAccountNo(account_number: any) {
+    return this.http.get<any>(`${this.devUrl}/transaction?account_number=${account_number}`);
+  }
+
+  // deleteTransaction(request_id: any){
+  //   return this.http.delete<any>(`${this.devUrl}/request/${request_id}`);
+  // }
 
 
-      
+
 
   //  UTILITIES //
-  getCountries(){
+  getCountries() {
     return this.http.get<any>(`${this.devUrl}/country`);
   }
-  addCountry(country: any){
+  addCountry(country: any) {
     return this.http.post<any>(`${this.devUrl}/country`, country);
   }
-  deleteCountry(id: any){
+  deleteCountry(id: any) {
     return this.http.delete<any>(`${this.devUrl}/country/${id}`);
   }
-  getGengers(){
+  getGengers() {
     return this.http.get<any>(`${this.devUrl}/gender`);
   }
-  addGender(gender: any){
+  addGender(gender: any) {
     return this.http.post<any>(`${this.devUrl}/gender`, gender);
   }
-  deleteGender(id: any){
+  deleteGender(id: any) {
     return this.http.delete<any>(`${this.devUrl}/gender/${id}`);
   }
-  getPromotionTypes(){
+  getPromotionTypes() {
     return this.http.get<any>(`${this.devUrl}/promotion_type`);
   }
-  addPromotionType(promotionType: any){
+  addPromotionType(promotionType: any) {
     return this.http.post<any>(`${this.devUrl}/promotion_type`, promotionType);
   }
-  deletePromotionType(id: any){
+  deletePromotionType(id: any) {
     return this.http.delete<any>(`${this.devUrl}/promotion_type/${id}`);
   }
-  getDenominations(){
+  getDenominations() {
     return this.http.get<any>(`${this.devUrl}/denomination`);
   }
-  addDenomination(denomination: any){
+  addDenomination(denomination: any) {
     return this.http.post<any>(`${this.devUrl}/denomination`, denomination);
   }
-  deleteDenomination(id: any){
+  deleteDenomination(id: any) {
     return this.http.delete<any>(`${this.devUrl}/denomination/${id}`);
   }
-  getInvestmentPeriods(){
+  getInvestmentPeriods() {
     return this.http.get<any>(`${this.devUrl}/investment_period`);
   }
-  addInvestmentPeriod(investmentPeriod: any){
+  addInvestmentPeriod(investmentPeriod: any) {
     return this.http.post<any>(`${this.devUrl}/investment_period`, investmentPeriod);
   }
-  deleteInvestmentPeriod(id: any){
+  deleteInvestmentPeriod(id: any) {
     return this.http.delete<any>(`${this.devUrl}/investment_period/${id}`);
   }
-  getAccountTypes(){
+  getAccountTypes() {
     return this.http.get<any>(`${this.devUrl}/account_type`);
   }
-  addAccountType(accountTypes: any){
+  addAccountType(accountTypes: any) {
     return this.http.post<any>(`${this.devUrl}/account_type`, accountTypes);
   }
-  deleteAccountType(id: any){
+  deleteAccountType(id: any) {
     return this.http.delete<any>(`${this.devUrl}/account_type/${id}`);
   }
 
@@ -182,27 +182,27 @@ return this.http.post<any>(`${this.devUrl}/user`, user)
 
 
   // Admin Bank Details
-  getBankDetails(){
+  getBankDetails() {
     return this.http.get<any>(`${this.devUrl}/bank_details`);
   }
-  addBankDetails(bankDetails: any){
+  addBankDetails(bankDetails: any) {
     return this.http.post<any>(`${this.devUrl}/bank_details`, bankDetails);
   }
-  editBankDetails(body: any, id: any){
+  editBankDetails(body: any, id: any) {
     return this.http.put<any>(`${this.devUrl}/bank_details/${id}`, body);
   }
-  
-  
+
+
   // User Bank Details
-  getUserBankDetails(uid, all){
+  getUserBankDetails(uid, all) {
     return this.http.get<any>(`${this.devUrl}/user_bank_details?uid=${uid}&all=${all}`);
   }
-  addUserBankDetails(bankDetails: any){
+  addUserBankDetails(bankDetails: any) {
     return this.http.post<any>(`${this.devUrl}/user_bank_details`, bankDetails);
   }
-  editUserBankDetails(body: any, id: any){
+  editUserBankDetails(body: any, id: any) {
     return this.http.put<any>(`${this.devUrl}/user_bank_details/${id}`, body);
   }
- 
+
 
 }
